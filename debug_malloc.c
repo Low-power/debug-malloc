@@ -14,7 +14,7 @@ void* malloc(size_t rawSize) {
     int numTotalPages = numGivenPages + 1;
 
     void* allMemory = mmap(NULL, numTotalPages * page, PROT_READ | PROT_WRITE,
-            MAP_PRIVATE | MAP_ANONYMOUS, 0, 0);
+            MAP_PRIVATE | MAP_ANONYMOUS, -1, 0);
     if (allMemory == MAP_FAILED) {
         return NULL;
     }
